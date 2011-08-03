@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Show problems recorded with Problem Steps Recorder" />
+    <meta name="keywords" content="Problem Steps Recorder, Upload, Show, Problem" />
+    <meta name="author" content="Žiga Vidic" />
+
+    <link rel="stylesheet" href="/style/base.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    
+    <title>{% block title %}Share problem{% endblock %}</title>
+</head>
+<body>
+    <div id="head">
+        <a href="/">
+            <img src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" 
+                 alt="Powered by Google App Engine" />
+        </a>
+        {% block head %}{% endblock %}
+    </div>
+    <div id="message">
+        <b>{% block message %}{% endblock %}</b>
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+    <div id="foot">
+        {% block foot %}{% endblock %}
+    </div>
+</body>
+</html>

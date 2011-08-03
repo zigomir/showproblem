@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Problem{% endblock %}
+
+{% block head %}
+<h3>Images from your file</h3>
+{% endblock %}
+
+{% block content %}
+<a href="/">Back to beginning</a>
+<div>
+	<a href="#" id="prev"><< Prev</a>
+	<span class="imageWalk"></span>
+	<a href="#" id="next">Next >></a>
+</div>
+
+<div class="images">
+{% for image in images %}
+    <img id="{{ image.filenumber }}" 
+         src="/img?img_id={{ image.key }}&width={{ w }}&height={{ h }}" />
+{% endfor %}
+<div>
+
+<script src="/script/images.js"></script>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    // always comment developer when deploying
+    //var disqus_developer = 1;
+    var disqus_shortname = 'showproblem';
+    // if disqus_identifier is defined, I'dont need disqus_url. (http://docs.disqus.com/help/2/)
+    var disqus_identifier = '{{ hash }}';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">Showproblem comments powered by <span class="logo-disqus">Disqus</span></a>
+{% endblock %}

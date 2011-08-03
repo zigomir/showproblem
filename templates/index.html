@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Share problem - Upload file{% endblock %}
+
+{% block head %}
+<h3>Share Problem Steps Recorder files</h3>
+{% endblock %}
+
+{% block message %}
+{{ message }}
+{% endblock %}
+
+{% block content %}
+<script src="/script/resolutions.js"></script>
+<script>
+$(document).ready(function() {
+	$('div#video').hide();
+	$('a#video').click(function(){
+		$('div#video').toggle();
+    });
+	
+	$('form').submit(function(){
+        if ($('input#file').val().length == 0) {
+        	$('div#message > b').html('You must choose a file');
+            return false;
+        }
+    });
+});
+</script>
+<div>
+<form action="/upload" method="post" enctype="multipart/form-data">
+	<input type="file" id="file" name="file">
+	<select id="resolution" name="resolution">
+	   <option id="optimal" value=""></option>
+	   <option id="full" value=""></option>
+	</select>
+	<input type="submit" name="submit" value="Show"> 
+</form>
+
+<a id="video" href="#">What is Problem Steps Recorder?</a>
+</div>
+
+
+<div id="video">
+    <iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/-rv5vvwCYMU" frameborder="0" allowFullScreen></iframe>
+</div>
+{% endblock %}
+
+{% block foot %}
+<a href="mailto:zigomir@gmail.com">Feedback? (careful, mailto link)</a>
+<a>|</a>
+<a href="http://drop-image.appspot.com">Wanna share other images or files?</a>
+{% endblock %}
