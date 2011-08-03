@@ -1,0 +1,2 @@
+This Google App Engine application strips zipped file with images from problem steps recorder file. 
+Image files are renderd to user and are available under unique URL, so problems are simple to share.
